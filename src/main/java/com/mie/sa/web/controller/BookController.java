@@ -85,4 +85,12 @@ public class BookController {
         PageView<Book> pageData = this.bookService.queryObjByPage(example);
         return ResponseResult.success(pageData);
     }
+
+    @ApiOperation(httpMethod="POST", value="queryById")
+    @RequestMapping(method = RequestMethod.POST, value = "service/queryById",consumes ="application/json")
+    @ResponseBody
+    public ResponseResult<Book> queryById(@RequestBody Book book) {
+        Book bookInfo = bookService.queryObjById(book.getId());
+        return ResponseResult.success(bookInfo);
+    }
 }

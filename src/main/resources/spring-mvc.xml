@@ -87,5 +87,14 @@
 		<mvc:mapping path="v2/api-docs" allowed-origins="*" allowed-methods="GET, PUT" />
 	</mvc:cors>
 
-
+	<!-- 在实际开发中通常都需配置 mvc:annotation-driven标签,这个标签是开启注解 -->
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<!-- 拦截器 -->
+	<mvc:interceptors>
+		<!-- 多个拦截器，顺序执行 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**/service/**"/>
+			<bean class="com.mie.sa.interceptor.LoginInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>

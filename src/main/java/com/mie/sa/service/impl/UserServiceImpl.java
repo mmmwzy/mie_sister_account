@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public void modifyObj(User t) {
         if (StringUtils.isBlank(t.getId())) {
-            throw new NullPointerException("id ???????");
+            throw new NullPointerException("id 为空，无法更新");
         }
         this.userMapper.updateByPrimaryKeySelective(t);
     }

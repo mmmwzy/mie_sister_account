@@ -9,23 +9,26 @@ import java.util.Date;
 public class User implements Serializable {
     private String id;
 
-    @ApiModelProperty("??openId")
-    private String wx_openId;
+    @ApiModelProperty("微信openId")
+    private String wxOpenid;
 
-    @ApiModelProperty("???????")
-    private String user_alipay_account;
+    @ApiModelProperty("用户支付宝账号")
+    private String userAlipayAccount;
 
-    @ApiModelProperty("????")
-    private String user_name;
+    @ApiModelProperty("用户姓名")
+    private String userName;
 
-    @ApiModelProperty("????")
-    private Date create_time;
+    @ApiModelProperty("用户手机号")
+    private String userPhone;
 
-    @ApiModelProperty("????")
-    private Date update_time;
+    @ApiModelProperty("创建时间")
+    private Date createTime;
 
-    @ApiModelProperty("???(0?????1????)")
-    private Byte is_delete;
+    @ApiModelProperty("修改时间")
+    private Date updateTime;
+
+    @ApiModelProperty("软删除(0：已删除，1：未删除)")
+    private Byte isDelete;
 
     private static final long serialVersionUID = 1L;
 
@@ -37,51 +40,59 @@ public class User implements Serializable {
         this.id = id == null ? null : id.trim();
     }
 
-    public String getWx_openId() {
-        return wx_openId;
+    public String getWxOpenid() {
+        return wxOpenid;
     }
 
-    public void setWx_openId(String wx_openId) {
-        this.wx_openId = wx_openId == null ? null : wx_openId.trim();
+    public void setWxOpenid(String wxOpenid) {
+        this.wxOpenid = wxOpenid == null ? null : wxOpenid.trim();
     }
 
-    public String getUser_alipay_account() {
-        return user_alipay_account;
+    public String getUserAlipayAccount() {
+        return userAlipayAccount;
     }
 
-    public void setUser_alipay_account(String user_alipay_account) {
-        this.user_alipay_account = user_alipay_account == null ? null : user_alipay_account.trim();
+    public void setUserAlipayAccount(String userAlipayAccount) {
+        this.userAlipayAccount = userAlipayAccount == null ? null : userAlipayAccount.trim();
     }
 
-    public String getUser_name() {
-        return user_name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUser_name(String user_name) {
-        this.user_name = user_name == null ? null : user_name.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public String getUserPhone() {
+        return userPhone;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setUserPhone(String userPhone) {
+        this.userPhone = userPhone == null ? null : userPhone.trim();
     }
 
-    public Date getUpdate_time() {
-        return update_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Byte getIs_delete() {
-        return is_delete;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setIs_delete(Byte is_delete) {
-        this.is_delete = is_delete;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Byte getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Byte isDelete) {
+        this.isDelete = isDelete;
     }
 }

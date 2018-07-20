@@ -195,703 +195,963 @@ public class BillExample extends AbstractExample<Bill> implements Serializable {
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeIsNull() {
+        public Criteria andBillContextTypeIsNull() {
+            addCriterion("bill_context_type is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillContextTypeIsNotNull() {
+            addCriterion("bill_context_type is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillContextTypeEqualTo(Byte value) {
+            addCriterion("bill_context_type =", value, "billContextType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillContextTypeNotEqualTo(Byte value) {
+            addCriterion("bill_context_type <>", value, "billContextType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillContextTypeGreaterThan(Byte value) {
+            addCriterion("bill_context_type >", value, "billContextType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillContextTypeGreaterThanOrEqualTo(Byte value) {
+            addCriterion("bill_context_type >=", value, "billContextType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillContextTypeLessThan(Byte value) {
+            addCriterion("bill_context_type <", value, "billContextType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillContextTypeLessThanOrEqualTo(Byte value) {
+            addCriterion("bill_context_type <=", value, "billContextType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillContextTypeIn(List<Byte> values) {
+            addCriterion("bill_context_type in", values, "billContextType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillContextTypeNotIn(List<Byte> values) {
+            addCriterion("bill_context_type not in", values, "billContextType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillContextTypeBetween(Byte value1, Byte value2) {
+            addCriterion("bill_context_type between", value1, value2, "billContextType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillContextTypeNotBetween(Byte value1, Byte value2) {
+            addCriterion("bill_context_type not between", value1, value2, "billContextType");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillTypeIsNull() {
             addCriterion("bill_type is null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeIsNotNull() {
+        public Criteria andBillTypeIsNotNull() {
             addCriterion("bill_type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeEqualTo(Byte value) {
-            addCriterion("bill_type =", value, "bill_type");
+        public Criteria andBillTypeEqualTo(Byte value) {
+            addCriterion("bill_type =", value, "billType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeNotEqualTo(Byte value) {
-            addCriterion("bill_type <>", value, "bill_type");
+        public Criteria andBillTypeNotEqualTo(Byte value) {
+            addCriterion("bill_type <>", value, "billType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeGreaterThan(Byte value) {
-            addCriterion("bill_type >", value, "bill_type");
+        public Criteria andBillTypeGreaterThan(Byte value) {
+            addCriterion("bill_type >", value, "billType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeGreaterThanOrEqualTo(Byte value) {
-            addCriterion("bill_type >=", value, "bill_type");
+        public Criteria andBillTypeGreaterThanOrEqualTo(Byte value) {
+            addCriterion("bill_type >=", value, "billType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeLessThan(Byte value) {
-            addCriterion("bill_type <", value, "bill_type");
+        public Criteria andBillTypeLessThan(Byte value) {
+            addCriterion("bill_type <", value, "billType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeLessThanOrEqualTo(Byte value) {
-            addCriterion("bill_type <=", value, "bill_type");
+        public Criteria andBillTypeLessThanOrEqualTo(Byte value) {
+            addCriterion("bill_type <=", value, "billType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeIn(List<Byte> values) {
-            addCriterion("bill_type in", values, "bill_type");
+        public Criteria andBillTypeIn(List<Byte> values) {
+            addCriterion("bill_type in", values, "billType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeNotIn(List<Byte> values) {
-            addCriterion("bill_type not in", values, "bill_type");
+        public Criteria andBillTypeNotIn(List<Byte> values) {
+            addCriterion("bill_type not in", values, "billType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeBetween(Byte value1, Byte value2) {
-            addCriterion("bill_type between", value1, value2, "bill_type");
+        public Criteria andBillTypeBetween(Byte value1, Byte value2) {
+            addCriterion("bill_type between", value1, value2, "billType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_typeNotBetween(Byte value1, Byte value2) {
-            addCriterion("bill_type not between", value1, value2, "bill_type");
+        public Criteria andBillTypeNotBetween(Byte value1, Byte value2) {
+            addCriterion("bill_type not between", value1, value2, "billType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeIsNull() {
+        public Criteria andBillDescribeIsNull() {
             addCriterion("bill_describe is null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeIsNotNull() {
+        public Criteria andBillDescribeIsNotNull() {
             addCriterion("bill_describe is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeEqualTo(String value) {
-            addCriterion("bill_describe =", value, "bill_describe");
+        public Criteria andBillDescribeEqualTo(String value) {
+            addCriterion("bill_describe =", value, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeNotEqualTo(String value) {
-            addCriterion("bill_describe <>", value, "bill_describe");
+        public Criteria andBillDescribeNotEqualTo(String value) {
+            addCriterion("bill_describe <>", value, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeGreaterThan(String value) {
-            addCriterion("bill_describe >", value, "bill_describe");
+        public Criteria andBillDescribeGreaterThan(String value) {
+            addCriterion("bill_describe >", value, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeGreaterThanOrEqualTo(String value) {
-            addCriterion("bill_describe >=", value, "bill_describe");
+        public Criteria andBillDescribeGreaterThanOrEqualTo(String value) {
+            addCriterion("bill_describe >=", value, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeLessThan(String value) {
-            addCriterion("bill_describe <", value, "bill_describe");
+        public Criteria andBillDescribeLessThan(String value) {
+            addCriterion("bill_describe <", value, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeLessThanOrEqualTo(String value) {
-            addCriterion("bill_describe <=", value, "bill_describe");
+        public Criteria andBillDescribeLessThanOrEqualTo(String value) {
+            addCriterion("bill_describe <=", value, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeLike(String value) {
-            addCriterion("bill_describe like", value, "bill_describe");
+        public Criteria andBillDescribeLike(String value) {
+            addCriterion("bill_describe like", value, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeNotLike(String value) {
-            addCriterion("bill_describe not like", value, "bill_describe");
+        public Criteria andBillDescribeNotLike(String value) {
+            addCriterion("bill_describe not like", value, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeIn(List<String> values) {
-            addCriterion("bill_describe in", values, "bill_describe");
+        public Criteria andBillDescribeIn(List<String> values) {
+            addCriterion("bill_describe in", values, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeNotIn(List<String> values) {
-            addCriterion("bill_describe not in", values, "bill_describe");
+        public Criteria andBillDescribeNotIn(List<String> values) {
+            addCriterion("bill_describe not in", values, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeBetween(String value1, String value2) {
-            addCriterion("bill_describe between", value1, value2, "bill_describe");
+        public Criteria andBillDescribeBetween(String value1, String value2) {
+            addCriterion("bill_describe between", value1, value2, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_describeNotBetween(String value1, String value2) {
-            addCriterion("bill_describe not between", value1, value2, "bill_describe");
+        public Criteria andBillDescribeNotBetween(String value1, String value2) {
+            addCriterion("bill_describe not between", value1, value2, "billDescribe");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountIsNull() {
+        public Criteria andBillAmountIsNull() {
             addCriterion("bill_amount is null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountIsNotNull() {
+        public Criteria andBillAmountIsNotNull() {
             addCriterion("bill_amount is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountEqualTo(BigDecimal value) {
-            addCriterion("bill_amount =", value, "bill_amount");
+        public Criteria andBillAmountEqualTo(BigDecimal value) {
+            addCriterion("bill_amount =", value, "billAmount");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountNotEqualTo(BigDecimal value) {
-            addCriterion("bill_amount <>", value, "bill_amount");
+        public Criteria andBillAmountNotEqualTo(BigDecimal value) {
+            addCriterion("bill_amount <>", value, "billAmount");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountGreaterThan(BigDecimal value) {
-            addCriterion("bill_amount >", value, "bill_amount");
+        public Criteria andBillAmountGreaterThan(BigDecimal value) {
+            addCriterion("bill_amount >", value, "billAmount");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("bill_amount >=", value, "bill_amount");
+        public Criteria andBillAmountGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("bill_amount >=", value, "billAmount");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountLessThan(BigDecimal value) {
-            addCriterion("bill_amount <", value, "bill_amount");
+        public Criteria andBillAmountLessThan(BigDecimal value) {
+            addCriterion("bill_amount <", value, "billAmount");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("bill_amount <=", value, "bill_amount");
+        public Criteria andBillAmountLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("bill_amount <=", value, "billAmount");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountIn(List<BigDecimal> values) {
-            addCriterion("bill_amount in", values, "bill_amount");
+        public Criteria andBillAmountIn(List<BigDecimal> values) {
+            addCriterion("bill_amount in", values, "billAmount");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountNotIn(List<BigDecimal> values) {
-            addCriterion("bill_amount not in", values, "bill_amount");
+        public Criteria andBillAmountNotIn(List<BigDecimal> values) {
+            addCriterion("bill_amount not in", values, "billAmount");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("bill_amount between", value1, value2, "bill_amount");
+        public Criteria andBillAmountBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("bill_amount between", value1, value2, "billAmount");
             return (Criteria) this;
         }
 
-        public Criteria andBill_amountNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("bill_amount not between", value1, value2, "bill_amount");
+        public Criteria andBillAmountNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("bill_amount not between", value1, value2, "billAmount");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkIsNull() {
+        public Criteria andBillRemarkIsNull() {
             addCriterion("bill_remark is null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkIsNotNull() {
+        public Criteria andBillRemarkIsNotNull() {
             addCriterion("bill_remark is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkEqualTo(String value) {
-            addCriterion("bill_remark =", value, "bill_remark");
+        public Criteria andBillRemarkEqualTo(String value) {
+            addCriterion("bill_remark =", value, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkNotEqualTo(String value) {
-            addCriterion("bill_remark <>", value, "bill_remark");
+        public Criteria andBillRemarkNotEqualTo(String value) {
+            addCriterion("bill_remark <>", value, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkGreaterThan(String value) {
-            addCriterion("bill_remark >", value, "bill_remark");
+        public Criteria andBillRemarkGreaterThan(String value) {
+            addCriterion("bill_remark >", value, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkGreaterThanOrEqualTo(String value) {
-            addCriterion("bill_remark >=", value, "bill_remark");
+        public Criteria andBillRemarkGreaterThanOrEqualTo(String value) {
+            addCriterion("bill_remark >=", value, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkLessThan(String value) {
-            addCriterion("bill_remark <", value, "bill_remark");
+        public Criteria andBillRemarkLessThan(String value) {
+            addCriterion("bill_remark <", value, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkLessThanOrEqualTo(String value) {
-            addCriterion("bill_remark <=", value, "bill_remark");
+        public Criteria andBillRemarkLessThanOrEqualTo(String value) {
+            addCriterion("bill_remark <=", value, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkLike(String value) {
-            addCriterion("bill_remark like", value, "bill_remark");
+        public Criteria andBillRemarkLike(String value) {
+            addCriterion("bill_remark like", value, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkNotLike(String value) {
-            addCriterion("bill_remark not like", value, "bill_remark");
+        public Criteria andBillRemarkNotLike(String value) {
+            addCriterion("bill_remark not like", value, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkIn(List<String> values) {
-            addCriterion("bill_remark in", values, "bill_remark");
+        public Criteria andBillRemarkIn(List<String> values) {
+            addCriterion("bill_remark in", values, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkNotIn(List<String> values) {
-            addCriterion("bill_remark not in", values, "bill_remark");
+        public Criteria andBillRemarkNotIn(List<String> values) {
+            addCriterion("bill_remark not in", values, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkBetween(String value1, String value2) {
-            addCriterion("bill_remark between", value1, value2, "bill_remark");
+        public Criteria andBillRemarkBetween(String value1, String value2) {
+            addCriterion("bill_remark between", value1, value2, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_remarkNotBetween(String value1, String value2) {
-            addCriterion("bill_remark not between", value1, value2, "bill_remark");
+        public Criteria andBillRemarkNotBetween(String value1, String value2) {
+            addCriterion("bill_remark not between", value1, value2, "billRemark");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userIsNull() {
-            addCriterion("bill_user is null");
+        public Criteria andBillUserNameIsNull() {
+            addCriterion("bill_user_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userIsNotNull() {
-            addCriterion("bill_user is not null");
+        public Criteria andBillUserNameIsNotNull() {
+            addCriterion("bill_user_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userEqualTo(String value) {
-            addCriterion("bill_user =", value, "bill_user");
+        public Criteria andBillUserNameEqualTo(String value) {
+            addCriterion("bill_user_name =", value, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userNotEqualTo(String value) {
-            addCriterion("bill_user <>", value, "bill_user");
+        public Criteria andBillUserNameNotEqualTo(String value) {
+            addCriterion("bill_user_name <>", value, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userGreaterThan(String value) {
-            addCriterion("bill_user >", value, "bill_user");
+        public Criteria andBillUserNameGreaterThan(String value) {
+            addCriterion("bill_user_name >", value, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userGreaterThanOrEqualTo(String value) {
-            addCriterion("bill_user >=", value, "bill_user");
+        public Criteria andBillUserNameGreaterThanOrEqualTo(String value) {
+            addCriterion("bill_user_name >=", value, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userLessThan(String value) {
-            addCriterion("bill_user <", value, "bill_user");
+        public Criteria andBillUserNameLessThan(String value) {
+            addCriterion("bill_user_name <", value, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userLessThanOrEqualTo(String value) {
-            addCriterion("bill_user <=", value, "bill_user");
+        public Criteria andBillUserNameLessThanOrEqualTo(String value) {
+            addCriterion("bill_user_name <=", value, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userLike(String value) {
-            addCriterion("bill_user like", value, "bill_user");
+        public Criteria andBillUserNameLike(String value) {
+            addCriterion("bill_user_name like", value, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userNotLike(String value) {
-            addCriterion("bill_user not like", value, "bill_user");
+        public Criteria andBillUserNameNotLike(String value) {
+            addCriterion("bill_user_name not like", value, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userIn(List<String> values) {
-            addCriterion("bill_user in", values, "bill_user");
+        public Criteria andBillUserNameIn(List<String> values) {
+            addCriterion("bill_user_name in", values, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userNotIn(List<String> values) {
-            addCriterion("bill_user not in", values, "bill_user");
+        public Criteria andBillUserNameNotIn(List<String> values) {
+            addCriterion("bill_user_name not in", values, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userBetween(String value1, String value2) {
-            addCriterion("bill_user between", value1, value2, "bill_user");
+        public Criteria andBillUserNameBetween(String value1, String value2) {
+            addCriterion("bill_user_name between", value1, value2, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_userNotBetween(String value1, String value2) {
-            addCriterion("bill_user not between", value1, value2, "bill_user");
+        public Criteria andBillUserNameNotBetween(String value1, String value2) {
+            addCriterion("bill_user_name not between", value1, value2, "billUserName");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeIsNull() {
+        public Criteria andBillUserIdIsNull() {
+            addCriterion("bill_user_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdIsNotNull() {
+            addCriterion("bill_user_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdEqualTo(String value) {
+            addCriterion("bill_user_id =", value, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdNotEqualTo(String value) {
+            addCriterion("bill_user_id <>", value, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdGreaterThan(String value) {
+            addCriterion("bill_user_id >", value, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdGreaterThanOrEqualTo(String value) {
+            addCriterion("bill_user_id >=", value, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdLessThan(String value) {
+            addCriterion("bill_user_id <", value, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdLessThanOrEqualTo(String value) {
+            addCriterion("bill_user_id <=", value, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdLike(String value) {
+            addCriterion("bill_user_id like", value, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdNotLike(String value) {
+            addCriterion("bill_user_id not like", value, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdIn(List<String> values) {
+            addCriterion("bill_user_id in", values, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdNotIn(List<String> values) {
+            addCriterion("bill_user_id not in", values, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdBetween(String value1, String value2) {
+            addCriterion("bill_user_id between", value1, value2, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillUserIdNotBetween(String value1, String value2) {
+            addCriterion("bill_user_id not between", value1, value2, "billUserId");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDispatchTypeIsNull() {
             addCriterion("bill_dispatch_type is null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeIsNotNull() {
+        public Criteria andBillDispatchTypeIsNotNull() {
             addCriterion("bill_dispatch_type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeEqualTo(Byte value) {
-            addCriterion("bill_dispatch_type =", value, "bill_dispatch_type");
+        public Criteria andBillDispatchTypeEqualTo(Byte value) {
+            addCriterion("bill_dispatch_type =", value, "billDispatchType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeNotEqualTo(Byte value) {
-            addCriterion("bill_dispatch_type <>", value, "bill_dispatch_type");
+        public Criteria andBillDispatchTypeNotEqualTo(Byte value) {
+            addCriterion("bill_dispatch_type <>", value, "billDispatchType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeGreaterThan(Byte value) {
-            addCriterion("bill_dispatch_type >", value, "bill_dispatch_type");
+        public Criteria andBillDispatchTypeGreaterThan(Byte value) {
+            addCriterion("bill_dispatch_type >", value, "billDispatchType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeGreaterThanOrEqualTo(Byte value) {
-            addCriterion("bill_dispatch_type >=", value, "bill_dispatch_type");
+        public Criteria andBillDispatchTypeGreaterThanOrEqualTo(Byte value) {
+            addCriterion("bill_dispatch_type >=", value, "billDispatchType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeLessThan(Byte value) {
-            addCriterion("bill_dispatch_type <", value, "bill_dispatch_type");
+        public Criteria andBillDispatchTypeLessThan(Byte value) {
+            addCriterion("bill_dispatch_type <", value, "billDispatchType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeLessThanOrEqualTo(Byte value) {
-            addCriterion("bill_dispatch_type <=", value, "bill_dispatch_type");
+        public Criteria andBillDispatchTypeLessThanOrEqualTo(Byte value) {
+            addCriterion("bill_dispatch_type <=", value, "billDispatchType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeIn(List<Byte> values) {
-            addCriterion("bill_dispatch_type in", values, "bill_dispatch_type");
+        public Criteria andBillDispatchTypeIn(List<Byte> values) {
+            addCriterion("bill_dispatch_type in", values, "billDispatchType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeNotIn(List<Byte> values) {
-            addCriterion("bill_dispatch_type not in", values, "bill_dispatch_type");
+        public Criteria andBillDispatchTypeNotIn(List<Byte> values) {
+            addCriterion("bill_dispatch_type not in", values, "billDispatchType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeBetween(Byte value1, Byte value2) {
-            addCriterion("bill_dispatch_type between", value1, value2, "bill_dispatch_type");
+        public Criteria andBillDispatchTypeBetween(Byte value1, Byte value2) {
+            addCriterion("bill_dispatch_type between", value1, value2, "billDispatchType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_typeNotBetween(Byte value1, Byte value2) {
-            addCriterion("bill_dispatch_type not between", value1, value2, "bill_dispatch_type");
+        public Criteria andBillDispatchTypeNotBetween(Byte value1, Byte value2) {
+            addCriterion("bill_dispatch_type not between", value1, value2, "billDispatchType");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusIsNull() {
+        public Criteria andBillDispatchStatusIsNull() {
             addCriterion("bill_dispatch_status is null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusIsNotNull() {
+        public Criteria andBillDispatchStatusIsNotNull() {
             addCriterion("bill_dispatch_status is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusEqualTo(Byte value) {
-            addCriterion("bill_dispatch_status =", value, "bill_dispatch_status");
+        public Criteria andBillDispatchStatusEqualTo(Byte value) {
+            addCriterion("bill_dispatch_status =", value, "billDispatchStatus");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusNotEqualTo(Byte value) {
-            addCriterion("bill_dispatch_status <>", value, "bill_dispatch_status");
+        public Criteria andBillDispatchStatusNotEqualTo(Byte value) {
+            addCriterion("bill_dispatch_status <>", value, "billDispatchStatus");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusGreaterThan(Byte value) {
-            addCriterion("bill_dispatch_status >", value, "bill_dispatch_status");
+        public Criteria andBillDispatchStatusGreaterThan(Byte value) {
+            addCriterion("bill_dispatch_status >", value, "billDispatchStatus");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusGreaterThanOrEqualTo(Byte value) {
-            addCriterion("bill_dispatch_status >=", value, "bill_dispatch_status");
+        public Criteria andBillDispatchStatusGreaterThanOrEqualTo(Byte value) {
+            addCriterion("bill_dispatch_status >=", value, "billDispatchStatus");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusLessThan(Byte value) {
-            addCriterion("bill_dispatch_status <", value, "bill_dispatch_status");
+        public Criteria andBillDispatchStatusLessThan(Byte value) {
+            addCriterion("bill_dispatch_status <", value, "billDispatchStatus");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusLessThanOrEqualTo(Byte value) {
-            addCriterion("bill_dispatch_status <=", value, "bill_dispatch_status");
+        public Criteria andBillDispatchStatusLessThanOrEqualTo(Byte value) {
+            addCriterion("bill_dispatch_status <=", value, "billDispatchStatus");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusIn(List<Byte> values) {
-            addCriterion("bill_dispatch_status in", values, "bill_dispatch_status");
+        public Criteria andBillDispatchStatusIn(List<Byte> values) {
+            addCriterion("bill_dispatch_status in", values, "billDispatchStatus");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusNotIn(List<Byte> values) {
-            addCriterion("bill_dispatch_status not in", values, "bill_dispatch_status");
+        public Criteria andBillDispatchStatusNotIn(List<Byte> values) {
+            addCriterion("bill_dispatch_status not in", values, "billDispatchStatus");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusBetween(Byte value1, Byte value2) {
-            addCriterion("bill_dispatch_status between", value1, value2, "bill_dispatch_status");
+        public Criteria andBillDispatchStatusBetween(Byte value1, Byte value2) {
+            addCriterion("bill_dispatch_status between", value1, value2, "billDispatchStatus");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_statusNotBetween(Byte value1, Byte value2) {
-            addCriterion("bill_dispatch_status not between", value1, value2, "bill_dispatch_status");
+        public Criteria andBillDispatchStatusNotBetween(Byte value1, Byte value2) {
+            addCriterion("bill_dispatch_status not between", value1, value2, "billDispatchStatus");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderIsNull() {
+        public Criteria andBillDispatchOrderIsNull() {
             addCriterion("bill_dispatch_order is null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderIsNotNull() {
+        public Criteria andBillDispatchOrderIsNotNull() {
             addCriterion("bill_dispatch_order is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderEqualTo(String value) {
-            addCriterion("bill_dispatch_order =", value, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderEqualTo(String value) {
+            addCriterion("bill_dispatch_order =", value, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderNotEqualTo(String value) {
-            addCriterion("bill_dispatch_order <>", value, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderNotEqualTo(String value) {
+            addCriterion("bill_dispatch_order <>", value, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderGreaterThan(String value) {
-            addCriterion("bill_dispatch_order >", value, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderGreaterThan(String value) {
+            addCriterion("bill_dispatch_order >", value, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderGreaterThanOrEqualTo(String value) {
-            addCriterion("bill_dispatch_order >=", value, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderGreaterThanOrEqualTo(String value) {
+            addCriterion("bill_dispatch_order >=", value, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderLessThan(String value) {
-            addCriterion("bill_dispatch_order <", value, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderLessThan(String value) {
+            addCriterion("bill_dispatch_order <", value, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderLessThanOrEqualTo(String value) {
-            addCriterion("bill_dispatch_order <=", value, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderLessThanOrEqualTo(String value) {
+            addCriterion("bill_dispatch_order <=", value, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderLike(String value) {
-            addCriterion("bill_dispatch_order like", value, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderLike(String value) {
+            addCriterion("bill_dispatch_order like", value, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderNotLike(String value) {
-            addCriterion("bill_dispatch_order not like", value, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderNotLike(String value) {
+            addCriterion("bill_dispatch_order not like", value, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderIn(List<String> values) {
-            addCriterion("bill_dispatch_order in", values, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderIn(List<String> values) {
+            addCriterion("bill_dispatch_order in", values, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderNotIn(List<String> values) {
-            addCriterion("bill_dispatch_order not in", values, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderNotIn(List<String> values) {
+            addCriterion("bill_dispatch_order not in", values, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderBetween(String value1, String value2) {
-            addCriterion("bill_dispatch_order between", value1, value2, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderBetween(String value1, String value2) {
+            addCriterion("bill_dispatch_order between", value1, value2, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andBill_dispatch_orderNotBetween(String value1, String value2) {
-            addCriterion("bill_dispatch_order not between", value1, value2, "bill_dispatch_order");
+        public Criteria andBillDispatchOrderNotBetween(String value1, String value2) {
+            addCriterion("bill_dispatch_order not between", value1, value2, "billDispatchOrder");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeIsNull() {
+        public Criteria andBillDataViewIsNull() {
+            addCriterion("bill_data_view is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewIsNotNull() {
+            addCriterion("bill_data_view is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewEqualTo(String value) {
+            addCriterion("bill_data_view =", value, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewNotEqualTo(String value) {
+            addCriterion("bill_data_view <>", value, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewGreaterThan(String value) {
+            addCriterion("bill_data_view >", value, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewGreaterThanOrEqualTo(String value) {
+            addCriterion("bill_data_view >=", value, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewLessThan(String value) {
+            addCriterion("bill_data_view <", value, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewLessThanOrEqualTo(String value) {
+            addCriterion("bill_data_view <=", value, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewLike(String value) {
+            addCriterion("bill_data_view like", value, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewNotLike(String value) {
+            addCriterion("bill_data_view not like", value, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewIn(List<String> values) {
+            addCriterion("bill_data_view in", values, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewNotIn(List<String> values) {
+            addCriterion("bill_data_view not in", values, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewBetween(String value1, String value2) {
+            addCriterion("bill_data_view between", value1, value2, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDataViewNotBetween(String value1, String value2) {
+            addCriterion("bill_data_view not between", value1, value2, "billDataView");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateIsNull() {
+            addCriterion("bill_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateIsNotNull() {
+            addCriterion("bill_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateEqualTo(Date value) {
+            addCriterion("bill_date =", value, "billDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateNotEqualTo(Date value) {
+            addCriterion("bill_date <>", value, "billDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateGreaterThan(Date value) {
+            addCriterion("bill_date >", value, "billDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("bill_date >=", value, "billDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateLessThan(Date value) {
+            addCriterion("bill_date <", value, "billDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateLessThanOrEqualTo(Date value) {
+            addCriterion("bill_date <=", value, "billDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateIn(List<Date> values) {
+            addCriterion("bill_date in", values, "billDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateNotIn(List<Date> values) {
+            addCriterion("bill_date not in", values, "billDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateBetween(Date value1, Date value2) {
+            addCriterion("bill_date between", value1, value2, "billDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andBillDateNotBetween(Date value1, Date value2) {
+            addCriterion("bill_date not between", value1, value2, "billDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateTimeIsNull() {
             addCriterion("create_time is null");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeIsNotNull() {
+        public Criteria andCreateTimeIsNotNull() {
             addCriterion("create_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeEqualTo(Date value) {
-            addCriterion("create_time =", value, "create_time");
+        public Criteria andCreateTimeEqualTo(Date value) {
+            addCriterion("create_time =", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeNotEqualTo(Date value) {
-            addCriterion("create_time <>", value, "create_time");
+        public Criteria andCreateTimeNotEqualTo(Date value) {
+            addCriterion("create_time <>", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeGreaterThan(Date value) {
-            addCriterion("create_time >", value, "create_time");
+        public Criteria andCreateTimeGreaterThan(Date value) {
+            addCriterion("create_time >", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeGreaterThanOrEqualTo(Date value) {
-            addCriterion("create_time >=", value, "create_time");
+        public Criteria andCreateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_time >=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeLessThan(Date value) {
-            addCriterion("create_time <", value, "create_time");
+        public Criteria andCreateTimeLessThan(Date value) {
+            addCriterion("create_time <", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeLessThanOrEqualTo(Date value) {
-            addCriterion("create_time <=", value, "create_time");
+        public Criteria andCreateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("create_time <=", value, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeIn(List<Date> values) {
-            addCriterion("create_time in", values, "create_time");
+        public Criteria andCreateTimeIn(List<Date> values) {
+            addCriterion("create_time in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeNotIn(List<Date> values) {
-            addCriterion("create_time not in", values, "create_time");
+        public Criteria andCreateTimeNotIn(List<Date> values) {
+            addCriterion("create_time not in", values, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeBetween(Date value1, Date value2) {
-            addCriterion("create_time between", value1, value2, "create_time");
+        public Criteria andCreateTimeBetween(Date value1, Date value2) {
+            addCriterion("create_time between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andCreate_timeNotBetween(Date value1, Date value2) {
-            addCriterion("create_time not between", value1, value2, "create_time");
+        public Criteria andCreateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("create_time not between", value1, value2, "createTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeIsNull() {
+        public Criteria andUpdateTimeIsNull() {
             addCriterion("update_time is null");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeIsNotNull() {
+        public Criteria andUpdateTimeIsNotNull() {
             addCriterion("update_time is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeEqualTo(Date value) {
-            addCriterion("update_time =", value, "update_time");
+        public Criteria andUpdateTimeEqualTo(Date value) {
+            addCriterion("update_time =", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeNotEqualTo(Date value) {
-            addCriterion("update_time <>", value, "update_time");
+        public Criteria andUpdateTimeNotEqualTo(Date value) {
+            addCriterion("update_time <>", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeGreaterThan(Date value) {
-            addCriterion("update_time >", value, "update_time");
+        public Criteria andUpdateTimeGreaterThan(Date value) {
+            addCriterion("update_time >", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeGreaterThanOrEqualTo(Date value) {
-            addCriterion("update_time >=", value, "update_time");
+        public Criteria andUpdateTimeGreaterThanOrEqualTo(Date value) {
+            addCriterion("update_time >=", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeLessThan(Date value) {
-            addCriterion("update_time <", value, "update_time");
+        public Criteria andUpdateTimeLessThan(Date value) {
+            addCriterion("update_time <", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeLessThanOrEqualTo(Date value) {
-            addCriterion("update_time <=", value, "update_time");
+        public Criteria andUpdateTimeLessThanOrEqualTo(Date value) {
+            addCriterion("update_time <=", value, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeIn(List<Date> values) {
-            addCriterion("update_time in", values, "update_time");
+        public Criteria andUpdateTimeIn(List<Date> values) {
+            addCriterion("update_time in", values, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeNotIn(List<Date> values) {
-            addCriterion("update_time not in", values, "update_time");
+        public Criteria andUpdateTimeNotIn(List<Date> values) {
+            addCriterion("update_time not in", values, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeBetween(Date value1, Date value2) {
-            addCriterion("update_time between", value1, value2, "update_time");
+        public Criteria andUpdateTimeBetween(Date value1, Date value2) {
+            addCriterion("update_time between", value1, value2, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andUpdate_timeNotBetween(Date value1, Date value2) {
-            addCriterion("update_time not between", value1, value2, "update_time");
+        public Criteria andUpdateTimeNotBetween(Date value1, Date value2) {
+            addCriterion("update_time not between", value1, value2, "updateTime");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteIsNull() {
+        public Criteria andIsDeleteIsNull() {
             addCriterion("is_delete is null");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteIsNotNull() {
+        public Criteria andIsDeleteIsNotNull() {
             addCriterion("is_delete is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteEqualTo(Byte value) {
-            addCriterion("is_delete =", value, "is_delete");
+        public Criteria andIsDeleteEqualTo(Byte value) {
+            addCriterion("is_delete =", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteNotEqualTo(Byte value) {
-            addCriterion("is_delete <>", value, "is_delete");
+        public Criteria andIsDeleteNotEqualTo(Byte value) {
+            addCriterion("is_delete <>", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteGreaterThan(Byte value) {
-            addCriterion("is_delete >", value, "is_delete");
+        public Criteria andIsDeleteGreaterThan(Byte value) {
+            addCriterion("is_delete >", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteGreaterThanOrEqualTo(Byte value) {
-            addCriterion("is_delete >=", value, "is_delete");
+        public Criteria andIsDeleteGreaterThanOrEqualTo(Byte value) {
+            addCriterion("is_delete >=", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteLessThan(Byte value) {
-            addCriterion("is_delete <", value, "is_delete");
+        public Criteria andIsDeleteLessThan(Byte value) {
+            addCriterion("is_delete <", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteLessThanOrEqualTo(Byte value) {
-            addCriterion("is_delete <=", value, "is_delete");
+        public Criteria andIsDeleteLessThanOrEqualTo(Byte value) {
+            addCriterion("is_delete <=", value, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteIn(List<Byte> values) {
-            addCriterion("is_delete in", values, "is_delete");
+        public Criteria andIsDeleteIn(List<Byte> values) {
+            addCriterion("is_delete in", values, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteNotIn(List<Byte> values) {
-            addCriterion("is_delete not in", values, "is_delete");
+        public Criteria andIsDeleteNotIn(List<Byte> values) {
+            addCriterion("is_delete not in", values, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteBetween(Byte value1, Byte value2) {
-            addCriterion("is_delete between", value1, value2, "is_delete");
+        public Criteria andIsDeleteBetween(Byte value1, Byte value2) {
+            addCriterion("is_delete between", value1, value2, "isDelete");
             return (Criteria) this;
         }
 
-        public Criteria andIs_deleteNotBetween(Byte value1, Byte value2) {
-            addCriterion("is_delete not between", value1, value2, "is_delete");
+        public Criteria andIsDeleteNotBetween(Byte value1, Byte value2) {
+            addCriterion("is_delete not between", value1, value2, "isDelete");
             return (Criteria) this;
         }
     }

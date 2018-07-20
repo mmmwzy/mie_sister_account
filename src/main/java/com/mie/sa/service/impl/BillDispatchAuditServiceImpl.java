@@ -33,7 +33,7 @@ public class BillDispatchAuditServiceImpl implements BillDispatchAuditService {
     @Override
     public void modifyObj(BillDispatchAudit t) {
         if (StringUtils.isBlank(t.getId())) {
-            throw new NullPointerException("id ???????");
+            throw new NullPointerException("id 为空，无法更新");
         }
         this.billDispatchAuditMapper.updateByPrimaryKeySelective(t);
     }

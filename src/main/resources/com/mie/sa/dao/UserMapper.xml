@@ -3,12 +3,13 @@
 <mapper namespace="com.mie.sa.dao.UserMapper" >
   <resultMap id="BaseResultMap" type="com.mie.sa.entity.User" >
     <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="wx_openId" property="wx_openId" jdbcType="VARCHAR" />
-    <result column="user_alipay_account" property="user_alipay_account" jdbcType="VARCHAR" />
-    <result column="user_name" property="user_name" jdbcType="VARCHAR" />
-    <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
-    <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
-    <result column="is_delete" property="is_delete" jdbcType="TINYINT" />
+    <result column="wx_openId" property="wxOpenid" jdbcType="VARCHAR" />
+    <result column="user_alipay_account" property="userAlipayAccount" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="user_phone" property="userPhone" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -69,7 +70,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, wx_openId, user_alipay_account, user_name, create_time, update_time, is_delete
+    id, wx_openId, user_alipay_account, user_name, user_phone, create_time, update_time, 
+    is_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mie.sa.entity.UserExample" >
     select
@@ -103,57 +105,63 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.mie.sa.entity.User" useGeneratedKeys="true" keyProperty="id" >
-    <bind name="_uuid" value="@com.mie.base.utils.uuid.UUIDGenerator@generateUUIDAndSetId(#this)"/>
+    <bind name="_uuid" value="@com.mie.base.utils.UUID.UUIDGenerator@generateUUIDAndSetId(#this)"/>
     insert into sa_user (id, wx_openId, user_alipay_account, 
-      user_name, create_time, update_time, 
-      is_delete)
-    values (#{_uuid}, #{wx_openId,jdbcType=VARCHAR}, #{user_alipay_account,jdbcType=VARCHAR}, 
-      #{user_name,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}, #{update_time,jdbcType=TIMESTAMP}, 
-      #{is_delete,jdbcType=TINYINT})
+      user_name, user_phone, create_time, 
+      update_time, is_delete)
+    values (#{_uuid}, #{wxOpenid,jdbcType=VARCHAR}, #{userAlipayAccount,jdbcType=VARCHAR}, 
+      #{userName,jdbcType=VARCHAR}, #{userPhone,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.mie.sa.entity.User" useGeneratedKeys="true" keyProperty="id" >
-    <bind name="_uuid" value="@com.mie.base.utils.uuid.UUIDGenerator@generateUUIDAndSetId(#this)"/>
+    <bind name="_uuid" value="@com.mie.base.utils.UUID.UUIDGenerator@generateUUIDAndSetId(#this)"/>
     insert into sa_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       id,
-      <if test="wx_openId != null" >
+      <if test="wxOpenid != null" >
         wx_openId,
       </if>
-      <if test="user_alipay_account != null" >
+      <if test="userAlipayAccount != null" >
         user_alipay_account,
       </if>
-      <if test="user_name != null" >
+      <if test="userName != null" >
         user_name,
       </if>
-      <if test="create_time != null" >
+      <if test="userPhone != null" >
+        user_phone,
+      </if>
+      <if test="createTime != null" >
         create_time,
       </if>
-      <if test="update_time != null" >
+      <if test="updateTime != null" >
         update_time,
       </if>
-      <if test="is_delete != null" >
+      <if test="isDelete != null" >
         is_delete,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       #{_uuid},
-      <if test="wx_openId != null" >
-        #{wx_openId,jdbcType=VARCHAR},
+      <if test="wxOpenid != null" >
+        #{wxOpenid,jdbcType=VARCHAR},
       </if>
-      <if test="user_alipay_account != null" >
-        #{user_alipay_account,jdbcType=VARCHAR},
+      <if test="userAlipayAccount != null" >
+        #{userAlipayAccount,jdbcType=VARCHAR},
       </if>
-      <if test="user_name != null" >
-        #{user_name,jdbcType=VARCHAR},
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="create_time != null" >
-        #{create_time,jdbcType=TIMESTAMP},
+      <if test="userPhone != null" >
+        #{userPhone,jdbcType=VARCHAR},
       </if>
-      <if test="update_time != null" >
-        #{update_time,jdbcType=TIMESTAMP},
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="is_delete != null" >
-        #{is_delete,jdbcType=TINYINT},
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -169,23 +177,26 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.wx_openId != null" >
-        wx_openId = #{record.wx_openId,jdbcType=VARCHAR},
+      <if test="record.wxOpenid != null" >
+        wx_openId = #{record.wxOpenid,jdbcType=VARCHAR},
       </if>
-      <if test="record.user_alipay_account != null" >
-        user_alipay_account = #{record.user_alipay_account,jdbcType=VARCHAR},
+      <if test="record.userAlipayAccount != null" >
+        user_alipay_account = #{record.userAlipayAccount,jdbcType=VARCHAR},
       </if>
-      <if test="record.user_name != null" >
-        user_name = #{record.user_name,jdbcType=VARCHAR},
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
       </if>
-      <if test="record.create_time != null" >
-        create_time = #{record.create_time,jdbcType=TIMESTAMP},
+      <if test="record.userPhone != null" >
+        user_phone = #{record.userPhone,jdbcType=VARCHAR},
       </if>
-      <if test="record.update_time != null" >
-        update_time = #{record.update_time,jdbcType=TIMESTAMP},
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="record.is_delete != null" >
-        is_delete = #{record.is_delete,jdbcType=TINYINT},
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDelete != null" >
+        is_delete = #{record.isDelete,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -195,12 +206,13 @@
   <update id="updateByExample" parameterType="map" >
     update sa_user
     set id = #{record.id,jdbcType=VARCHAR},
-      wx_openId = #{record.wx_openId,jdbcType=VARCHAR},
-      user_alipay_account = #{record.user_alipay_account,jdbcType=VARCHAR},
-      user_name = #{record.user_name,jdbcType=VARCHAR},
-      create_time = #{record.create_time,jdbcType=TIMESTAMP},
-      update_time = #{record.update_time,jdbcType=TIMESTAMP},
-      is_delete = #{record.is_delete,jdbcType=TINYINT}
+      wx_openId = #{record.wxOpenid,jdbcType=VARCHAR},
+      user_alipay_account = #{record.userAlipayAccount,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      user_phone = #{record.userPhone,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{record.isDelete,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -208,45 +220,49 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.mie.sa.entity.User" >
     update sa_user
     <set >
-      <if test="wx_openId != null" >
-        wx_openId = #{wx_openId,jdbcType=VARCHAR},
+      <if test="wxOpenid != null" >
+        wx_openId = #{wxOpenid,jdbcType=VARCHAR},
       </if>
-      <if test="user_alipay_account != null" >
-        user_alipay_account = #{user_alipay_account,jdbcType=VARCHAR},
+      <if test="userAlipayAccount != null" >
+        user_alipay_account = #{userAlipayAccount,jdbcType=VARCHAR},
       </if>
-      <if test="user_name != null" >
-        user_name = #{user_name,jdbcType=VARCHAR},
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="create_time != null" >
-        create_time = #{create_time,jdbcType=TIMESTAMP},
+      <if test="userPhone != null" >
+        user_phone = #{userPhone,jdbcType=VARCHAR},
       </if>
-      <if test="update_time != null" >
-        update_time = #{update_time,jdbcType=TIMESTAMP},
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
-      <if test="is_delete != null" >
-        is_delete = #{is_delete,jdbcType=TINYINT},
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mie.sa.entity.User" >
     update sa_user
-    set wx_openId = #{wx_openId,jdbcType=VARCHAR},
-      user_alipay_account = #{user_alipay_account,jdbcType=VARCHAR},
-      user_name = #{user_name,jdbcType=VARCHAR},
-      create_time = #{create_time,jdbcType=TIMESTAMP},
-      update_time = #{update_time,jdbcType=TIMESTAMP},
-      is_delete = #{is_delete,jdbcType=TINYINT}
+    set wx_openId = #{wxOpenid,jdbcType=VARCHAR},
+      user_alipay_account = #{userAlipayAccount,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      user_phone = #{userPhone,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <insert id="insertBatch" parameterType="com.mie.sa.entity.User" >
     insert into sa_user (id, wx_openId, user_alipay_account, 
-      user_name, create_time, update_time, 
-      is_delete) values 
+      user_name, user_phone, create_time, 
+      update_time, is_delete) values 
     <foreach collection="list" item="item" index="index" separator="," >
-      (#{_uuid}, #{item.wx_openId,jdbcType=VARCHAR}, #{item.user_alipay_account,jdbcType=VARCHAR}, 
-        #{item.user_name,jdbcType=VARCHAR}, #{item.create_time,jdbcType=TIMESTAMP}, #{item.update_time,jdbcType=TIMESTAMP}, 
-        #{item.is_delete,jdbcType=TINYINT})
+      (#{_uuid}, #{item.wxOpenid,jdbcType=VARCHAR}, #{item.userAlipayAccount,jdbcType=VARCHAR}, 
+        #{item.userName,jdbcType=VARCHAR}, #{item.userPhone,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, 
+        #{item.updateTime,jdbcType=TIMESTAMP}, #{item.isDelete,jdbcType=TINYINT})
     </foreach>
   </insert>
   <select id="selectByExampleByPage" resultMap="BaseResultMap" parameterType="com.mie.sa.entity.UserExample" >

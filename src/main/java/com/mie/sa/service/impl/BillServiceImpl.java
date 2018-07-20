@@ -33,7 +33,7 @@ public class BillServiceImpl implements BillService {
     @Override
     public void modifyObj(Bill t) {
         if (StringUtils.isBlank(t.getId())) {
-            throw new NullPointerException("id ???????");
+            throw new NullPointerException("id 为空，无法更新");
         }
         this.billMapper.updateByPrimaryKeySelective(t);
     }

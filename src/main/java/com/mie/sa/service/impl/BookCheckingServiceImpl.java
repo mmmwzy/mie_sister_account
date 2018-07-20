@@ -33,7 +33,7 @@ public class BookCheckingServiceImpl implements BookCheckingService {
     @Override
     public void modifyObj(BookChecking t) {
         if (StringUtils.isBlank(t.getId())) {
-            throw new NullPointerException("id ???????");
+            throw new NullPointerException("id 为空，无法更新");
         }
         this.bookCheckingMapper.updateByPrimaryKeySelective(t);
     }

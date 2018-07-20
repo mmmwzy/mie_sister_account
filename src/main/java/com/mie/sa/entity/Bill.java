@@ -6,42 +6,52 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@ApiModel(value="?????")
+@ApiModel(value="账单信息表")
 public class Bill implements Serializable {
     private String id;
 
-    @ApiModelProperty("?????0????1????")
-    private Byte bill_type;
+    @ApiModelProperty("账单内容类型（1：餐饮，2：交通,3：住房，4：加装，5其他，6：公共资金）")
+    private Byte billContextType;
 
-    @ApiModelProperty("????")
-    private String bill_describe;
+    @ApiModelProperty("账单类型（0：支出，1：收入）")
+    private Byte billType;
 
-    @ApiModelProperty("????")
-    private BigDecimal bill_amount;
+    @ApiModelProperty("账单描述")
+    private String billDescribe;
 
-    @ApiModelProperty("????")
-    private String bill_remark;
+    @ApiModelProperty("账单金额")
+    private BigDecimal billAmount;
 
-    @ApiModelProperty("?????")
-    private String bill_user;
+    @ApiModelProperty("账单备注")
+    private String billRemark;
 
-    @ApiModelProperty("???????0?????1??????")
-    private Byte bill_dispatch_type;
+    @ApiModelProperty("账单创建人姓名")
+    private String billUserName;
 
-    @ApiModelProperty("???????0 ?????1??????????2??????????3???????????")
-    private Byte bill_dispatch_status;
+    @ApiModelProperty("账单创建人ID")
+    private String billUserId;
 
-    @ApiModelProperty("???????")
-    private String bill_dispatch_order;
+    @ApiModelProperty("账单报销类型（0：不报销，1：需要报销）")
+    private Byte billDispatchType;
 
-    @ApiModelProperty("????")
-    private Date create_time;
+    @ApiModelProperty("账单报销状态（0 ：审核中，1：审核通过，未报销，2：审核通过，已报销，3：审核不通过，未报销）")
+    private Byte billDispatchStatus;
 
-    @ApiModelProperty("????")
-    private Date update_time;
+    @ApiModelProperty("报销转账订单号")
+    private String billDispatchOrder;
 
-    @ApiModelProperty("???(0?????1????)")
-    private Byte is_delete;
+    private String billDataView;
+
+    private Date billDate;
+
+    @ApiModelProperty("创建时间")
+    private Date createTime;
+
+    @ApiModelProperty("修改时间")
+    private Date updateTime;
+
+    @ApiModelProperty("软删除(0：已删除，1：未删除)")
+    private Byte isDelete;
 
     private static final long serialVersionUID = 1L;
 
@@ -53,91 +63,123 @@ public class Bill implements Serializable {
         this.id = id == null ? null : id.trim();
     }
 
-    public Byte getBill_type() {
-        return bill_type;
+    public Byte getBillContextType() {
+        return billContextType;
     }
 
-    public void setBill_type(Byte bill_type) {
-        this.bill_type = bill_type;
+    public void setBillContextType(Byte billContextType) {
+        this.billContextType = billContextType;
     }
 
-    public String getBill_describe() {
-        return bill_describe;
+    public Byte getBillType() {
+        return billType;
     }
 
-    public void setBill_describe(String bill_describe) {
-        this.bill_describe = bill_describe == null ? null : bill_describe.trim();
+    public void setBillType(Byte billType) {
+        this.billType = billType;
     }
 
-    public BigDecimal getBill_amount() {
-        return bill_amount;
+    public String getBillDescribe() {
+        return billDescribe;
     }
 
-    public void setBill_amount(BigDecimal bill_amount) {
-        this.bill_amount = bill_amount;
+    public void setBillDescribe(String billDescribe) {
+        this.billDescribe = billDescribe == null ? null : billDescribe.trim();
     }
 
-    public String getBill_remark() {
-        return bill_remark;
+    public BigDecimal getBillAmount() {
+        return billAmount;
     }
 
-    public void setBill_remark(String bill_remark) {
-        this.bill_remark = bill_remark == null ? null : bill_remark.trim();
+    public void setBillAmount(BigDecimal billAmount) {
+        this.billAmount = billAmount;
     }
 
-    public String getBill_user() {
-        return bill_user;
+    public String getBillRemark() {
+        return billRemark;
     }
 
-    public void setBill_user(String bill_user) {
-        this.bill_user = bill_user == null ? null : bill_user.trim();
+    public void setBillRemark(String billRemark) {
+        this.billRemark = billRemark == null ? null : billRemark.trim();
     }
 
-    public Byte getBill_dispatch_type() {
-        return bill_dispatch_type;
+    public String getBillUserName() {
+        return billUserName;
     }
 
-    public void setBill_dispatch_type(Byte bill_dispatch_type) {
-        this.bill_dispatch_type = bill_dispatch_type;
+    public void setBillUserName(String billUserName) {
+        this.billUserName = billUserName == null ? null : billUserName.trim();
     }
 
-    public Byte getBill_dispatch_status() {
-        return bill_dispatch_status;
+    public String getBillUserId() {
+        return billUserId;
     }
 
-    public void setBill_dispatch_status(Byte bill_dispatch_status) {
-        this.bill_dispatch_status = bill_dispatch_status;
+    public void setBillUserId(String billUserId) {
+        this.billUserId = billUserId == null ? null : billUserId.trim();
     }
 
-    public String getBill_dispatch_order() {
-        return bill_dispatch_order;
+    public Byte getBillDispatchType() {
+        return billDispatchType;
     }
 
-    public void setBill_dispatch_order(String bill_dispatch_order) {
-        this.bill_dispatch_order = bill_dispatch_order == null ? null : bill_dispatch_order.trim();
+    public void setBillDispatchType(Byte billDispatchType) {
+        this.billDispatchType = billDispatchType;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Byte getBillDispatchStatus() {
+        return billDispatchStatus;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setBillDispatchStatus(Byte billDispatchStatus) {
+        this.billDispatchStatus = billDispatchStatus;
     }
 
-    public Date getUpdate_time() {
-        return update_time;
+    public String getBillDispatchOrder() {
+        return billDispatchOrder;
     }
 
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
+    public void setBillDispatchOrder(String billDispatchOrder) {
+        this.billDispatchOrder = billDispatchOrder == null ? null : billDispatchOrder.trim();
     }
 
-    public Byte getIs_delete() {
-        return is_delete;
+    public String getBillDataView() {
+        return billDataView;
     }
 
-    public void setIs_delete(Byte is_delete) {
-        this.is_delete = is_delete;
+    public void setBillDataView(String billDataView) {
+        this.billDataView = billDataView == null ? null : billDataView.trim();
+    }
+
+    public Date getBillDate() {
+        return billDate;
+    }
+
+    public void setBillDate(Date billDate) {
+        this.billDate = billDate;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public Byte getIsDelete() {
+        return isDelete;
+    }
+
+    public void setIsDelete(Byte isDelete) {
+        this.isDelete = isDelete;
     }
 }

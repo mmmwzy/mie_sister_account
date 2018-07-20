@@ -1,5 +1,6 @@
 package com.mie.sa.utils;
 
+import javax.crypto.SecretKey;
 import java.util.Random;
 
 /**
@@ -27,5 +28,7 @@ public class KeyUtil {
 		}
 		return Keysb.toString();
 	}
+
+
 	
 }

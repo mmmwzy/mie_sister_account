@@ -7,18 +7,18 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class UserExample extends AbstractExample<User> implements Serializable {
+public class CodePhoneExample extends AbstractExample<CodePhone> implements Serializable {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    protected PageView<User> pageView = new PageView<User>(1, 10);
+    protected PageView<CodePhone> pageView = new PageView<CodePhone>(1, 10);
 
     private static final long serialVersionUID = 1L;
 
-    public UserExample() {
+    public CodePhoneExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -72,12 +72,12 @@ public class UserExample extends AbstractExample<User> implements Serializable {
     }
 
     @Override
-    public PageView<User> getPageView() {
+    public PageView<CodePhone> getPageView() {
         return pageView;
     }
 
     @Override
-    public void setPageView(PageView<User> pageView) {
+    public void setPageView(PageView<CodePhone> pageView) {
         this.pageView = pageView;
     }
 
@@ -194,283 +194,143 @@ public class UserExample extends AbstractExample<User> implements Serializable {
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidIsNull() {
-            addCriterion("wx_openId is null");
+        public Criteria andUserphoneIsNull() {
+            addCriterion("userPhone is null");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidIsNotNull() {
-            addCriterion("wx_openId is not null");
+        public Criteria andUserphoneIsNotNull() {
+            addCriterion("userPhone is not null");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidEqualTo(String value) {
-            addCriterion("wx_openId =", value, "wxOpenid");
+        public Criteria andUserphoneEqualTo(String value) {
+            addCriterion("userPhone =", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidNotEqualTo(String value) {
-            addCriterion("wx_openId <>", value, "wxOpenid");
+        public Criteria andUserphoneNotEqualTo(String value) {
+            addCriterion("userPhone <>", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidGreaterThan(String value) {
-            addCriterion("wx_openId >", value, "wxOpenid");
+        public Criteria andUserphoneGreaterThan(String value) {
+            addCriterion("userPhone >", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidGreaterThanOrEqualTo(String value) {
-            addCriterion("wx_openId >=", value, "wxOpenid");
+        public Criteria andUserphoneGreaterThanOrEqualTo(String value) {
+            addCriterion("userPhone >=", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidLessThan(String value) {
-            addCriterion("wx_openId <", value, "wxOpenid");
+        public Criteria andUserphoneLessThan(String value) {
+            addCriterion("userPhone <", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidLessThanOrEqualTo(String value) {
-            addCriterion("wx_openId <=", value, "wxOpenid");
+        public Criteria andUserphoneLessThanOrEqualTo(String value) {
+            addCriterion("userPhone <=", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidLike(String value) {
-            addCriterion("wx_openId like", value, "wxOpenid");
+        public Criteria andUserphoneLike(String value) {
+            addCriterion("userPhone like", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidNotLike(String value) {
-            addCriterion("wx_openId not like", value, "wxOpenid");
+        public Criteria andUserphoneNotLike(String value) {
+            addCriterion("userPhone not like", value, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidIn(List<String> values) {
-            addCriterion("wx_openId in", values, "wxOpenid");
+        public Criteria andUserphoneIn(List<String> values) {
+            addCriterion("userPhone in", values, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidNotIn(List<String> values) {
-            addCriterion("wx_openId not in", values, "wxOpenid");
+        public Criteria andUserphoneNotIn(List<String> values) {
+            addCriterion("userPhone not in", values, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidBetween(String value1, String value2) {
-            addCriterion("wx_openId between", value1, value2, "wxOpenid");
+        public Criteria andUserphoneBetween(String value1, String value2) {
+            addCriterion("userPhone between", value1, value2, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andWxOpenidNotBetween(String value1, String value2) {
-            addCriterion("wx_openId not between", value1, value2, "wxOpenid");
+        public Criteria andUserphoneNotBetween(String value1, String value2) {
+            addCriterion("userPhone not between", value1, value2, "userphone");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountIsNull() {
-            addCriterion("user_alipay_account is null");
+        public Criteria andPhonecodeIsNull() {
+            addCriterion("phoneCode is null");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountIsNotNull() {
-            addCriterion("user_alipay_account is not null");
+        public Criteria andPhonecodeIsNotNull() {
+            addCriterion("phoneCode is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountEqualTo(String value) {
-            addCriterion("user_alipay_account =", value, "userAlipayAccount");
+        public Criteria andPhonecodeEqualTo(String value) {
+            addCriterion("phoneCode =", value, "phonecode");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountNotEqualTo(String value) {
-            addCriterion("user_alipay_account <>", value, "userAlipayAccount");
+        public Criteria andPhonecodeNotEqualTo(String value) {
+            addCriterion("phoneCode <>", value, "phonecode");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountGreaterThan(String value) {
-            addCriterion("user_alipay_account >", value, "userAlipayAccount");
+        public Criteria andPhonecodeGreaterThan(String value) {
+            addCriterion("phoneCode >", value, "phonecode");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountGreaterThanOrEqualTo(String value) {
-            addCriterion("user_alipay_account >=", value, "userAlipayAccount");
+        public Criteria andPhonecodeGreaterThanOrEqualTo(String value) {
+            addCriterion("phoneCode >=", value, "phonecode");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountLessThan(String value) {
-            addCriterion("user_alipay_account <", value, "userAlipayAccount");
+        public Criteria andPhonecodeLessThan(String value) {
+            addCriterion("phoneCode <", value, "phonecode");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountLessThanOrEqualTo(String value) {
-            addCriterion("user_alipay_account <=", value, "userAlipayAccount");
+        public Criteria andPhonecodeLessThanOrEqualTo(String value) {
+            addCriterion("phoneCode <=", value, "phonecode");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountLike(String value) {
-            addCriterion("user_alipay_account like", value, "userAlipayAccount");
+        public Criteria andPhonecodeLike(String value) {
+            addCriterion("phoneCode like", value, "phonecode");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountNotLike(String value) {
-            addCriterion("user_alipay_account not like", value, "userAlipayAccount");
+        public Criteria andPhonecodeNotLike(String value) {
+            addCriterion("phoneCode not like", value, "phonecode");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountIn(List<String> values) {
-            addCriterion("user_alipay_account in", values, "userAlipayAccount");
+        public Criteria andPhonecodeIn(List<String> values) {
+            addCriterion("phoneCode in", values, "phonecode");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountNotIn(List<String> values) {
-            addCriterion("user_alipay_account not in", values, "userAlipayAccount");
+        public Criteria andPhonecodeNotIn(List<String> values) {
+            addCriterion("phoneCode not in", values, "phonecode");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountBetween(String value1, String value2) {
-            addCriterion("user_alipay_account between", value1, value2, "userAlipayAccount");
+        public Criteria andPhonecodeBetween(String value1, String value2) {
+            addCriterion("phoneCode between", value1, value2, "phonecode");
             return (Criteria) this;
         }
 
-        public Criteria andUserAlipayAccountNotBetween(String value1, String value2) {
-            addCriterion("user_alipay_account not between", value1, value2, "userAlipayAccount");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameIsNull() {
-            addCriterion("user_name is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameIsNotNull() {
-            addCriterion("user_name is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameEqualTo(String value) {
-            addCriterion("user_name =", value, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameNotEqualTo(String value) {
-            addCriterion("user_name <>", value, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameGreaterThan(String value) {
-            addCriterion("user_name >", value, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameGreaterThanOrEqualTo(String value) {
-            addCriterion("user_name >=", value, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameLessThan(String value) {
-            addCriterion("user_name <", value, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameLessThanOrEqualTo(String value) {
-            addCriterion("user_name <=", value, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameLike(String value) {
-            addCriterion("user_name like", value, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameNotLike(String value) {
-            addCriterion("user_name not like", value, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameIn(List<String> values) {
-            addCriterion("user_name in", values, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameNotIn(List<String> values) {
-            addCriterion("user_name not in", values, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameBetween(String value1, String value2) {
-            addCriterion("user_name between", value1, value2, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserNameNotBetween(String value1, String value2) {
-            addCriterion("user_name not between", value1, value2, "userName");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneIsNull() {
-            addCriterion("user_phone is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneIsNotNull() {
-            addCriterion("user_phone is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneEqualTo(String value) {
-            addCriterion("user_phone =", value, "userPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneNotEqualTo(String value) {
-            addCriterion("user_phone <>", value, "userPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneGreaterThan(String value) {
-            addCriterion("user_phone >", value, "userPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneGreaterThanOrEqualTo(String value) {
-            addCriterion("user_phone >=", value, "userPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneLessThan(String value) {
-            addCriterion("user_phone <", value, "userPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneLessThanOrEqualTo(String value) {
-            addCriterion("user_phone <=", value, "userPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneLike(String value) {
-            addCriterion("user_phone like", value, "userPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneNotLike(String value) {
-            addCriterion("user_phone not like", value, "userPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneIn(List<String> values) {
-            addCriterion("user_phone in", values, "userPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneNotIn(List<String> values) {
-            addCriterion("user_phone not in", values, "userPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneBetween(String value1, String value2) {
-            addCriterion("user_phone between", value1, value2, "userPhone");
-            return (Criteria) this;
-        }
-
-        public Criteria andUserPhoneNotBetween(String value1, String value2) {
-            addCriterion("user_phone not between", value1, value2, "userPhone");
+        public Criteria andPhonecodeNotBetween(String value1, String value2) {
+            addCriterion("phoneCode not between", value1, value2, "phonecode");
             return (Criteria) this;
         }
 

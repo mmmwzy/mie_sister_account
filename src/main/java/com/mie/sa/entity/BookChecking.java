@@ -10,32 +10,32 @@ import java.util.Date;
 public class BookChecking implements Serializable {
     private String id;
 
-    @ApiModelProperty("??ID")
-    private String book_id;
+    @ApiModelProperty("账本ID")
+    private String bookId;
 
-    @ApiModelProperty("?????ID")
-    private String apply_user_id;
+    @ApiModelProperty("对账申请人ID")
+    private String applyUserId;
 
-    @ApiModelProperty("???ID")
-    private String check_user_id;
+    @ApiModelProperty("对账人ID")
+    private String checkUserId;
 
-    @ApiModelProperty("???????")
-    private BigDecimal check_alipay_balance;
+    @ApiModelProperty("对账支付宝余额")
+    private BigDecimal checkAlipayBalance;
 
-    @ApiModelProperty("????(0:???,1:??,2:??,3:??)")
-    private Byte check_status;
+    @ApiModelProperty("对账状态(0:已申请,1:正常,2:正差,3:负差)")
+    private Byte checkStatus;
 
-    @ApiModelProperty("????")
-    private BigDecimal check_balance;
+    @ApiModelProperty("对账差额")
+    private BigDecimal checkBalance;
 
-    @ApiModelProperty("????")
-    private Date create_time;
+    @ApiModelProperty("创建时间")
+    private Date createTime;
 
-    @ApiModelProperty("????")
-    private Date update_time;
+    @ApiModelProperty("修改时间")
+    private Date updateTime;
 
-    @ApiModelProperty("???(0?????1????)")
-    private Byte is_delete;
+    @ApiModelProperty("软删除(0：已删除，1：未删除)")
+    private Byte isDelete;
 
     private static final long serialVersionUID = 1L;
 
@@ -47,75 +47,75 @@ public class BookChecking implements Serializable {
         this.id = id == null ? null : id.trim();
     }
 
-    public String getBook_id() {
-        return book_id;
+    public String getBookId() {
+        return bookId;
     }
 
-    public void setBook_id(String book_id) {
-        this.book_id = book_id == null ? null : book_id.trim();
+    public void setBookId(String bookId) {
+        this.bookId = bookId == null ? null : bookId.trim();
     }
 
-    public String getApply_user_id() {
-        return apply_user_id;
+    public String getApplyUserId() {
+        return applyUserId;
     }
 
-    public void setApply_user_id(String apply_user_id) {
-        this.apply_user_id = apply_user_id == null ? null : apply_user_id.trim();
+    public void setApplyUserId(String applyUserId) {
+        this.applyUserId = applyUserId == null ? null : applyUserId.trim();
     }
 
-    public String getCheck_user_id() {
-        return check_user_id;
+    public String getCheckUserId() {
+        return checkUserId;
     }
 
-    public void setCheck_user_id(String check_user_id) {
-        this.check_user_id = check_user_id == null ? null : check_user_id.trim();
+    public void setCheckUserId(String checkUserId) {
+        this.checkUserId = checkUserId == null ? null : checkUserId.trim();
     }
 
-    public BigDecimal getCheck_alipay_balance() {
-        return check_alipay_balance;
+    public BigDecimal getCheckAlipayBalance() {
+        return checkAlipayBalance;
     }
 
-    public void setCheck_alipay_balance(BigDecimal check_alipay_balance) {
-        this.check_alipay_balance = check_alipay_balance;
+    public void setCheckAlipayBalance(BigDecimal checkAlipayBalance) {
+        this.checkAlipayBalance = checkAlipayBalance;
     }
 
-    public Byte getCheck_status() {
-        return check_status;
+    public Byte getCheckStatus() {
+        return checkStatus;
     }
 
-    public void setCheck_status(Byte check_status) {
-        this.check_status = check_status;
+    public void setCheckStatus(Byte checkStatus) {
+        this.checkStatus = checkStatus;
     }
 
-    public BigDecimal getCheck_balance() {
-        return check_balance;
+    public BigDecimal getCheckBalance() {
+        return checkBalance;
     }
 
-    public void setCheck_balance(BigDecimal check_balance) {
-        this.check_balance = check_balance;
+    public void setCheckBalance(BigDecimal checkBalance) {
+        this.checkBalance = checkBalance;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
-    public Date getUpdate_time() {
-        return update_time;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 
-    public Byte getIs_delete() {
-        return is_delete;
+    public Byte getIsDelete() {
+        return isDelete;
     }
 
-    public void setIs_delete(Byte is_delete) {
-        this.is_delete = is_delete;
+    public void setIsDelete(Byte isDelete) {
+        this.isDelete = isDelete;
     }
 }

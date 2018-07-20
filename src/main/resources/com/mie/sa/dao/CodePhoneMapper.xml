@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.mie.sa.dao.BookMapper" >
-  <resultMap id="BaseResultMap" type="com.mie.sa.entity.Book" >
+<mapper namespace="com.mie.sa.dao.CodePhoneMapper" >
+  <resultMap id="BaseResultMap" type="com.mie.sa.entity.CodePhone" >
     <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="book_balance" property="bookBalance" jdbcType="DECIMAL" />
+    <result column="userPhone" property="userphone" jdbcType="VARCHAR" />
+    <result column="phoneCode" property="phonecode" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
     <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
@@ -67,16 +68,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, book_balance, create_time, update_time, is_delete
+    id, userPhone, phoneCode, create_time, update_time, is_delete
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mie.sa.entity.BookExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mie.sa.entity.CodePhoneExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from sa_book
+    from sa_code_phone
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -87,33 +88,36 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select 
     <include refid="Base_Column_List" />
-    from sa_book
+    from sa_code_phone
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
-    delete from sa_book
+    delete from sa_code_phone
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.mie.sa.entity.BookExample" >
-    delete from sa_book
+  <delete id="deleteByExample" parameterType="com.mie.sa.entity.CodePhoneExample" >
+    delete from sa_code_phone
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.mie.sa.entity.Book" useGeneratedKeys="true" keyProperty="id" >
-    <bind name="_uuid" value="com.mie.base.utils.UUID.UUIDGenerator@generateUUIDAndSetId(#this)"/>
-    insert into sa_book (id, book_balance, create_time, 
+  <insert id="insert" parameterType="com.mie.sa.entity.CodePhone" useGeneratedKeys="true" keyProperty="id" >
+    <bind name="_uuid" value="@com.mie.base.utils.UUID.UUIDGenerator@generateUUIDAndSetId(#this)"/>
+    insert into sa_code_phone (id, userPhone, phoneCode, create_time, 
       update_time, is_delete)
-    values (#{_uuid}, #{bookBalance,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, 
+    values (#{_uuid}, #{userphone,jdbcType=VARCHAR}, #{phonecode,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
       #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.mie.sa.entity.Book" useGeneratedKeys="true" keyProperty="id" >
+  <insert id="insertSelective" parameterType="com.mie.sa.entity.CodePhone" useGeneratedKeys="true" keyProperty="id" >
     <bind name="_uuid" value="@com.mie.base.utils.UUID.UUIDGenerator@generateUUIDAndSetId(#this)"/>
-    insert into sa_book
+    insert into sa_code_phone
     <trim prefix="(" suffix=")" suffixOverrides="," >
       id,
-      <if test="bookBalance != null" >
-        book_balance,
+      <if test="userphone != null" >
+        userPhone,
+      </if>
+      <if test="phonecode != null" >
+        phoneCode,
       </if>
       <if test="createTime != null" >
         create_time,
@@ -127,8 +131,11 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       #{_uuid},
-      <if test="bookBalance != null" >
-        #{bookBalance,jdbcType=DECIMAL},
+      <if test="userphone != null" >
+        #{userphone,jdbcType=VARCHAR},
+      </if>
+      <if test="phonecode != null" >
+        #{phonecode,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
         #{createTime,jdbcType=TIMESTAMP},
@@ -141,20 +148,23 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.mie.sa.entity.BookExample" resultType="java.lang.Integer" >
-    select count(*) from sa_book
+  <select id="countByExample" parameterType="com.mie.sa.entity.CodePhoneExample" resultType="java.lang.Integer" >
+    select count(*) from sa_code_phone
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update sa_book
+    update sa_code_phone
     <set >
       <if test="record.id != null" >
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.bookBalance != null" >
-        book_balance = #{record.bookBalance,jdbcType=DECIMAL},
+      <if test="record.userphone != null" >
+        userPhone = #{record.userphone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phonecode != null" >
+        phoneCode = #{record.phonecode,jdbcType=VARCHAR},
       </if>
       <if test="record.createTime != null" >
         create_time = #{record.createTime,jdbcType=TIMESTAMP},
@@ -171,9 +181,10 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update sa_book
+    update sa_code_phone
     set id = #{record.id,jdbcType=VARCHAR},
-      book_balance = #{record.bookBalance,jdbcType=DECIMAL},
+      userPhone = #{record.userphone,jdbcType=VARCHAR},
+      phoneCode = #{record.phonecode,jdbcType=VARCHAR},
       create_time = #{record.createTime,jdbcType=TIMESTAMP},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       is_delete = #{record.isDelete,jdbcType=TINYINT}
@@ -181,11 +192,14 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.mie.sa.entity.Book" >
-    update sa_book
+  <update id="updateByPrimaryKeySelective" parameterType="com.mie.sa.entity.CodePhone" >
+    update sa_code_phone
     <set >
-      <if test="bookBalance != null" >
-        book_balance = #{bookBalance,jdbcType=DECIMAL},
+      <if test="userphone != null" >
+        userPhone = #{userphone,jdbcType=VARCHAR},
+      </if>
+      <if test="phonecode != null" >
+        phoneCode = #{phonecode,jdbcType=VARCHAR},
       </if>
       <if test="createTime != null" >
         create_time = #{createTime,jdbcType=TIMESTAMP},
@@ -199,30 +213,33 @@
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.mie.sa.entity.Book" >
-    update sa_book
-    set book_balance = #{bookBalance,jdbcType=DECIMAL},
+  <update id="updateByPrimaryKey" parameterType="com.mie.sa.entity.CodePhone" >
+    update sa_code_phone
+    set userPhone = #{userphone,jdbcType=VARCHAR},
+      phoneCode = #{phonecode,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
       is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <insert id="insertBatch" parameterType="com.mie.sa.entity.Book" >
-    insert into sa_book (id, book_balance, create_time, 
-      update_time, is_delete) values 
+  <insert id="insertBatch" parameterType="com.mie.sa.entity.CodePhone" >
+    insert into sa_code_phone (id, userPhone, phoneCode, 
+      create_time, update_time, is_delete
+      ) values 
     <foreach collection="list" item="item" index="index" separator="," >
-      (#{_uuid}, #{item.bookBalance,jdbcType=DECIMAL}, #{item.createTime,jdbcType=TIMESTAMP}, 
-        #{item.updateTime,jdbcType=TIMESTAMP}, #{item.isDelete,jdbcType=TINYINT})
+      (#{_uuid}, #{item.userphone,jdbcType=VARCHAR}, #{item.phonecode,jdbcType=VARCHAR}, 
+        #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP}, #{item.isDelete,jdbcType=TINYINT}
+        )
     </foreach>
   </insert>
-  <select id="selectByExampleByPage" resultMap="BaseResultMap" parameterType="com.mie.sa.entity.BookExample" >
+  <select id="selectByExampleByPage" resultMap="BaseResultMap" parameterType="com.mie.sa.entity.CodePhoneExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from sa_book
+    from sa_code_phone
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>

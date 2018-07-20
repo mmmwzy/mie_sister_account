@@ -1,25 +1,21 @@
 package com.mie.sa.entity;
 
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
-@ApiModel(value="sa_book")
-public class Book implements Serializable {
+@ApiModel(value="sa_code_phone")
+public class CodePhone implements Serializable {
     private String id;
 
-    @ApiModelProperty("账本余额")
-    private BigDecimal bookBalance;
+    private String userphone;
 
-    @ApiModelProperty("创建时间")
+    private String phonecode;
+
     private Date createTime;
 
-    @ApiModelProperty("修改时间")
     private Date updateTime;
 
-    @ApiModelProperty("软删除(0：已删除，1：未删除)")
     private Byte isDelete;
 
     private static final long serialVersionUID = 1L;
@@ -32,12 +28,20 @@ public class Book implements Serializable {
         this.id = id == null ? null : id.trim();
     }
 
-    public BigDecimal getBookBalance() {
-        return bookBalance;
+    public String getUserphone() {
+        return userphone;
     }
 
-    public void setBookBalance(BigDecimal bookBalance) {
-        this.bookBalance = bookBalance;
+    public void setUserphone(String userphone) {
+        this.userphone = userphone == null ? null : userphone.trim();
+    }
+
+    public String getPhonecode() {
+        return phonecode;
+    }
+
+    public void setPhonecode(String phonecode) {
+        this.phonecode = phonecode == null ? null : phonecode.trim();
     }
 
     public Date getCreateTime() {

@@ -3,13 +3,15 @@
 <mapper namespace="com.mie.sa.dao.BillDispatchAuditMapper" >
   <resultMap id="BaseResultMap" type="com.mie.sa.entity.BillDispatchAudit" >
     <id column="id" property="id" jdbcType="VARCHAR" />
-    <result column="bill_id" property="bill_id" jdbcType="VARCHAR" />
-    <result column="audit_user_id" property="audit_user_id" jdbcType="VARCHAR" />
-    <result column="audit_status" property="audit_status" jdbcType="TINYINT" />
-    <result column="audit_remark" property="audit_remark" jdbcType="VARCHAR" />
-    <result column="create_time" property="create_time" jdbcType="TIMESTAMP" />
-    <result column="update_time" property="update_time" jdbcType="TIMESTAMP" />
-    <result column="is_delete" property="is_delete" jdbcType="TINYINT" />
+    <result column="bill_id" property="billId" jdbcType="VARCHAR" />
+    <result column="audit_user_id" property="auditUserId" jdbcType="VARCHAR" />
+    <result column="audit_user_name" property="auditUserName" jdbcType="VARCHAR" />
+    <result column="audit_status" property="auditStatus" jdbcType="TINYINT" />
+    <result column="audit_status_name" property="auditStatusName" jdbcType="VARCHAR" />
+    <result column="audit_remark" property="auditRemark" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,8 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    id, bill_id, audit_user_id, audit_status, audit_remark, create_time, update_time, 
-    is_delete
+    id, bill_id, audit_user_id, audit_user_name, audit_status, audit_status_name, audit_remark, 
+    create_time, update_time, is_delete
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.mie.sa.entity.BillDispatchAuditExample" >
     select
@@ -105,63 +107,77 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.mie.sa.entity.BillDispatchAudit" useGeneratedKeys="true" keyProperty="id" >
-    <bind name="_uuid" value="@com.mie.base.utils.uuid.UUIDGenerator@generateUUIDAndSetId(#this)"/>
-    insert into sa_bill_dispatch_audit (id, bill_id, audit_user_id, 
-      audit_status, audit_remark, create_time, 
-      update_time, is_delete)
-    values (#{_uuid}, #{bill_id,jdbcType=VARCHAR}, #{audit_user_id,jdbcType=VARCHAR}, 
-      #{audit_status,jdbcType=TINYINT}, #{audit_remark,jdbcType=VARCHAR}, #{create_time,jdbcType=TIMESTAMP}, 
-      #{update_time,jdbcType=TIMESTAMP}, #{is_delete,jdbcType=TINYINT})
+    <bind name="_uuid" value="@com.mie.base.utils.UUID.UUIDGenerator@generateUUIDAndSetId(#this)"/>
+    insert into sa_bill_dispatch_audit (id, bill_id, audit_user_id, audit_user_name, 
+      audit_status, audit_status_name, audit_remark, 
+      create_time, update_time, is_delete
+      )
+    values (#{_uuid}, #{billId,jdbcType=VARCHAR}, #{auditUserId,jdbcType=VARCHAR}, #{auditUserName,jdbcType=VARCHAR}, 
+      #{auditStatus,jdbcType=TINYINT}, #{auditStatusName,jdbcType=VARCHAR}, #{auditRemark,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=TINYINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.mie.sa.entity.BillDispatchAudit" useGeneratedKeys="true" keyProperty="id" >
-    <bind name="_uuid" value="@com.mie.base.utils.uuid.UUIDGenerator@generateUUIDAndSetId(#this)"/>
+    <bind name="_uuid" value="@com.mie.base.utils.UUID.UUIDGenerator@generateUUIDAndSetId(#this)"/>
     insert into sa_bill_dispatch_audit
     <trim prefix="(" suffix=")" suffixOverrides="," >
       id,
-      <if test="bill_id != null" >
+      <if test="billId != null" >
         bill_id,
       </if>
-      <if test="audit_user_id != null" >
+      <if test="auditUserId != null" >
         audit_user_id,
       </if>
-      <if test="audit_status != null" >
+      <if test="auditUserName != null" >
+        audit_user_name,
+      </if>
+      <if test="auditStatus != null" >
         audit_status,
       </if>
-      <if test="audit_remark != null" >
+      <if test="auditStatusName != null" >
+        audit_status_name,
+      </if>
+      <if test="auditRemark != null" >
         audit_remark,
       </if>
-      <if test="create_time != null" >
+      <if test="createTime != null" >
         create_time,
       </if>
-      <if test="update_time != null" >
+      <if test="updateTime != null" >
         update_time,
       </if>
-      <if test="is_delete != null" >
+      <if test="isDelete != null" >
         is_delete,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       #{_uuid},
-      <if test="bill_id != null" >
-        #{bill_id,jdbcType=VARCHAR},
+      <if test="billId != null" >
+        #{billId,jdbcType=VARCHAR},
       </if>
-      <if test="audit_user_id != null" >
-        #{audit_user_id,jdbcType=VARCHAR},
+      <if test="auditUserId != null" >
+        #{auditUserId,jdbcType=VARCHAR},
       </if>
-      <if test="audit_status != null" >
-        #{audit_status,jdbcType=TINYINT},
+      <if test="auditUserName != null" >
+        #{auditUserName,jdbcType=VARCHAR},
       </if>
-      <if test="audit_remark != null" >
-        #{audit_remark,jdbcType=VARCHAR},
+      <if test="auditStatus != null" >
+        #{auditStatus,jdbcType=TINYINT},
       </if>
-      <if test="create_time != null" >
-        #{create_time,jdbcType=TIMESTAMP},
+      <if test="auditStatusName != null" >
+        #{auditStatusName,jdbcType=VARCHAR},
       </if>
-      <if test="update_time != null" >
-        #{update_time,jdbcType=TIMESTAMP},
+      <if test="auditRemark != null" >
+        #{auditRemark,jdbcType=VARCHAR},
       </if>
-      <if test="is_delete != null" >
-        #{is_delete,jdbcType=TINYINT},
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -177,26 +193,32 @@
       <if test="record.id != null" >
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.bill_id != null" >
-        bill_id = #{record.bill_id,jdbcType=VARCHAR},
+      <if test="record.billId != null" >
+        bill_id = #{record.billId,jdbcType=VARCHAR},
       </if>
-      <if test="record.audit_user_id != null" >
-        audit_user_id = #{record.audit_user_id,jdbcType=VARCHAR},
+      <if test="record.auditUserId != null" >
+        audit_user_id = #{record.auditUserId,jdbcType=VARCHAR},
       </if>
-      <if test="record.audit_status != null" >
-        audit_status = #{record.audit_status,jdbcType=TINYINT},
+      <if test="record.auditUserName != null" >
+        audit_user_name = #{record.auditUserName,jdbcType=VARCHAR},
       </if>
-      <if test="record.audit_remark != null" >
-        audit_remark = #{record.audit_remark,jdbcType=VARCHAR},
+      <if test="record.auditStatus != null" >
+        audit_status = #{record.auditStatus,jdbcType=TINYINT},
       </if>
-      <if test="record.create_time != null" >
-        create_time = #{record.create_time,jdbcType=TIMESTAMP},
+      <if test="record.auditStatusName != null" >
+        audit_status_name = #{record.auditStatusName,jdbcType=VARCHAR},
       </if>
-      <if test="record.update_time != null" >
-        update_time = #{record.update_time,jdbcType=TIMESTAMP},
+      <if test="record.auditRemark != null" >
+        audit_remark = #{record.auditRemark,jdbcType=VARCHAR},
       </if>
-      <if test="record.is_delete != null" >
-        is_delete = #{record.is_delete,jdbcType=TINYINT},
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.isDelete != null" >
+        is_delete = #{record.isDelete,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -206,13 +228,15 @@
   <update id="updateByExample" parameterType="map" >
     update sa_bill_dispatch_audit
     set id = #{record.id,jdbcType=VARCHAR},
-      bill_id = #{record.bill_id,jdbcType=VARCHAR},
-      audit_user_id = #{record.audit_user_id,jdbcType=VARCHAR},
-      audit_status = #{record.audit_status,jdbcType=TINYINT},
-      audit_remark = #{record.audit_remark,jdbcType=VARCHAR},
-      create_time = #{record.create_time,jdbcType=TIMESTAMP},
-      update_time = #{record.update_time,jdbcType=TIMESTAMP},
-      is_delete = #{record.is_delete,jdbcType=TINYINT}
+      bill_id = #{record.billId,jdbcType=VARCHAR},
+      audit_user_id = #{record.auditUserId,jdbcType=VARCHAR},
+      audit_user_name = #{record.auditUserName,jdbcType=VARCHAR},
+      audit_status = #{record.auditStatus,jdbcType=TINYINT},
+      audit_status_name = #{record.auditStatusName,jdbcType=VARCHAR},
+      audit_remark = #{record.auditRemark,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{record.isDelete,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -220,49 +244,59 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.mie.sa.entity.BillDispatchAudit" >
     update sa_bill_dispatch_audit
     <set >
-      <if test="bill_id != null" >
-        bill_id = #{bill_id,jdbcType=VARCHAR},
+      <if test="billId != null" >
+        bill_id = #{billId,jdbcType=VARCHAR},
       </if>
-      <if test="audit_user_id != null" >
-        audit_user_id = #{audit_user_id,jdbcType=VARCHAR},
+      <if test="auditUserId != null" >
+        audit_user_id = #{auditUserId,jdbcType=VARCHAR},
       </if>
-      <if test="audit_status != null" >
-        audit_status = #{audit_status,jdbcType=TINYINT},
+      <if test="auditUserName != null" >
+        audit_user_name = #{auditUserName,jdbcType=VARCHAR},
       </if>
-      <if test="audit_remark != null" >
-        audit_remark = #{audit_remark,jdbcType=VARCHAR},
+      <if test="auditStatus != null" >
+        audit_status = #{auditStatus,jdbcType=TINYINT},
       </if>
-      <if test="create_time != null" >
-        create_time = #{create_time,jdbcType=TIMESTAMP},
+      <if test="auditStatusName != null" >
+        audit_status_name = #{auditStatusName,jdbcType=VARCHAR},
       </if>
-      <if test="update_time != null" >
-        update_time = #{update_time,jdbcType=TIMESTAMP},
+      <if test="auditRemark != null" >
+        audit_remark = #{auditRemark,jdbcType=VARCHAR},
       </if>
-      <if test="is_delete != null" >
-        is_delete = #{is_delete,jdbcType=TINYINT},
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=TINYINT},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.mie.sa.entity.BillDispatchAudit" >
     update sa_bill_dispatch_audit
-    set bill_id = #{bill_id,jdbcType=VARCHAR},
-      audit_user_id = #{audit_user_id,jdbcType=VARCHAR},
-      audit_status = #{audit_status,jdbcType=TINYINT},
-      audit_remark = #{audit_remark,jdbcType=VARCHAR},
-      create_time = #{create_time,jdbcType=TIMESTAMP},
-      update_time = #{update_time,jdbcType=TIMESTAMP},
-      is_delete = #{is_delete,jdbcType=TINYINT}
+    set bill_id = #{billId,jdbcType=VARCHAR},
+      audit_user_id = #{auditUserId,jdbcType=VARCHAR},
+      audit_user_name = #{auditUserName,jdbcType=VARCHAR},
+      audit_status = #{auditStatus,jdbcType=TINYINT},
+      audit_status_name = #{auditStatusName,jdbcType=VARCHAR},
+      audit_remark = #{auditRemark,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=TINYINT}
     where id = #{id,jdbcType=VARCHAR}
   </update>
   <insert id="insertBatch" parameterType="com.mie.sa.entity.BillDispatchAudit" >
     insert into sa_bill_dispatch_audit (id, bill_id, audit_user_id, 
-      audit_status, audit_remark, create_time, 
-      update_time, is_delete) values 
+      audit_user_name, audit_status, audit_status_name, 
+      audit_remark, create_time, update_time, 
+      is_delete) values 
     <foreach collection="list" item="item" index="index" separator="," >
-      (#{_uuid}, #{item.bill_id,jdbcType=VARCHAR}, #{item.audit_user_id,jdbcType=VARCHAR}, 
-        #{item.audit_status,jdbcType=TINYINT}, #{item.audit_remark,jdbcType=VARCHAR}, #{item.create_time,jdbcType=TIMESTAMP}, 
-        #{item.update_time,jdbcType=TIMESTAMP}, #{item.is_delete,jdbcType=TINYINT})
+      (#{_uuid}, #{item.billId,jdbcType=VARCHAR}, #{item.auditUserId,jdbcType=VARCHAR}, 
+        #{item.auditUserName,jdbcType=VARCHAR}, #{item.auditStatus,jdbcType=TINYINT}, #{item.auditStatusName,jdbcType=VARCHAR}, 
+        #{item.auditRemark,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, #{item.updateTime,jdbcType=TIMESTAMP}, 
+        #{item.isDelete,jdbcType=TINYINT})
     </foreach>
   </insert>
   <select id="selectByExampleByPage" resultMap="BaseResultMap" parameterType="com.mie.sa.entity.BillDispatchAuditExample" >
