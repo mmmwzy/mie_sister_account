@@ -1,15 +1,15 @@
 package com.mie.sa.web.controller;
 
+import com.github.qcloudsms.SmsSingleSender;
+import com.github.qcloudsms.SmsSingleSenderResult;
 import com.mie.base.core.entity.PageView;
 import com.mie.base.core.entity.ResponseResult;
 import com.mie.base.core.exception.CommonException;
 import com.mie.base.core.utils.CriteriaUtils;
 import com.mie.base.core.utils.ResponseCode;
 import com.mie.base.core.utils.query.QueryParamWapper;
-import com.mie.sa.entity.Bill;
-import com.mie.sa.entity.BillDispatchAudit;
-import com.mie.sa.entity.BillDispatchAuditExample;
-import com.mie.sa.entity.BillExample;
+import com.mie.sa.constant.Constant;
+import com.mie.sa.entity.*;
 import com.mie.sa.service.BillDispatchAuditService;
 import com.mie.sa.service.BillService;
 import io.swagger.annotations.Api;
@@ -25,6 +25,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,16 +35,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import springfox.documentation.annotations.ApiIgnore;
+import com.mie.sa.service.UserService;
 
 @Api(value="sa_bill_dispatch_audit")
 @Controller
 @RequestMapping("billDispatchAudit")
 public class BillDispatchAuditController {
+    private static Logger logger = LoggerFactory.getLogger(BillDispatchAuditController.class);
     @Resource
     protected BillDispatchAuditService billDispatchAuditService;
 
     @Resource
     protected BillService billService;
+
+    @Resource
+    protected UserService userService;
 
     @ApiOperation(httpMethod="POST", value="??sa_bill_dispatch_audit")
     @RequestMapping(method = RequestMethod.POST, value = "service/create",consumes ="application/json")
@@ -84,6 +91,40 @@ public class BillDispatchAuditController {
             throw new CommonException("????,id????");
         }
         this.billDispatchAuditService.deleteObjById(id);
+        return ResponseResult.success();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "public/adminApply")
+    @ResponseBody
+    public ResponseResult<String> adminApply(@RequestParam(required=true) String billId, @RequestParam(required=true) String orderId) {
+        if (StringUtils.isBlank(billId)) {
+            throw new CommonException("billId不能为空");
+        }
+        if (StringUtils.isBlank(orderId)) {
+            throw new CommonException("orderId不能为空");
+        }
+        Bill bill = billService.queryObjById(billId);
+        if (bill == null){
+            throw new CommonException("billId有误，未查到该条记录");
+        }
+        bill.setBillDispatchOrder(orderId);
+        bill.setBillDispatchStatus(new Byte("2"));
+        billService.modifyObj(bill);
+
+        User user = userService.queryObjById(bill.getBillUserId());
+
+        String orderIdHide = orderId.substring(0, 8) + "*****" + orderId.substring(orderId.length() - 4);
+        try {
+            //{1}您好！您发起的描述为{2}，金额为{3}的报销审核已经通过，请前往绑定的支付宝查收，报销单号为{4}
+            String[] params = {bill.getBillUserName(), bill.getBillDescribe(), bill.getBillAmount().toString(), orderIdHide};
+            SmsSingleSender ssender = new SmsSingleSender(Constant.QCLOUD_SMS_APPID, Constant.QCLOUD_SMS_APPKEY);
+            SmsSingleSenderResult result = ssender.sendWithParam("86", user.getUserPhone(),
+                    Constant.QCLOUD_SMS_TEMPLATEID_EXAMINE_SUCCESS, params, Constant.QCLOUD_SMS_SIGN, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+
+        }catch (Exception e) {
+            logger.error("【审核通过报销通知】请求腾讯云短信服务失败,用户ID[" + user.getId() + "],账单ID为[" + bill.getId() + "]");
+        }
+
         return ResponseResult.success();
     }
 

@@ -33,6 +33,7 @@ public class ExamineInspectThread implements Runnable{
         this.billDispatchAuditService = billDispatchAuditService;
         this.userService = userService;
         this.billDispatchAudit = billDispatchAudit;
+        this.billService = billService;
     }
 
     @Override
@@ -62,10 +63,10 @@ public class ExamineInspectThread implements Runnable{
                 SmsSingleSenderResult result = ssender.sendWithParam("86", user.getUserPhone(),
                         Constant.QCLOUD_SMS_TEMPLATEID_EXAMINE_FAILED, params, Constant.QCLOUD_SMS_SIGN, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
             }else{
-                //{1}您好！{2}发起的描述为{3}，金额为{4}的报销申请已通过审核，请尽快前往小程序向{5}账号报销！
-                String[] params = {"管理员", user.getUserName(), bill.getBillDescribe(), bill.getBillAmount().toString(), user.getUserAlipayAccount()};
+                //{1}您好！{2}发起的编号为{3}，金额为{4}的报销申请已通过审核，请尽快前往小程序向{5}账号报销！
+                String[] params = {"管理员", user.getUserName(), bill.getId(), bill.getBillAmount().toString(), user.getUserAlipayAccount()};
                 SmsSingleSender ssender = new SmsSingleSender(Constant.QCLOUD_SMS_APPID, Constant.QCLOUD_SMS_APPKEY);
-                SmsSingleSenderResult result = ssender.sendWithParam("86", user.getUserPhone(),
+                SmsSingleSenderResult result = ssender.sendWithParam("86", "13297087891",
                         Constant.QCLOUD_SMS_TEMPLATEID_REIM_NOTICE, params, Constant.QCLOUD_SMS_SIGN, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
 
             }

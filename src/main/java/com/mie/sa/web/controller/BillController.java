@@ -4,13 +4,11 @@ import com.mie.base.core.entity.PageView;
 import com.mie.base.core.entity.ResponseResult;
 import com.mie.base.core.exception.CommonException;
 import com.mie.base.core.utils.CriteriaUtils;
-import com.mie.base.core.utils.ResponseCode;
 import com.mie.base.core.utils.query.QueryParamWapper;
 import com.mie.sa.entity.Bill;
 import com.mie.sa.entity.BillExample;
 import com.mie.sa.entity.Book;
-import com.mie.sa.service.BillService;
-import com.mie.sa.service.BookService;
+import com.mie.sa.service.*;
 import com.mie.sa.threads.AddBillSmsThread;
 import com.mie.sa.utils.JWTUtil;
 import io.jsonwebtoken.Claims;
@@ -18,30 +16,15 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.httpclient.util.DateParseException;
-import org.apache.commons.httpclient.util.DateUtil;
-import org.apache.commons.lang.StringUtils;
-import org.apache.http.client.utils.DateUtils;
-import org.springframework.http.HttpRequest;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import springfox.documentation.annotations.ApiIgnore;
-import com.mie.sa.service.UserService;
 
 @Api(value="?????")
 @Controller
@@ -53,16 +36,20 @@ public class BillController {
     protected BookService bookService;
     @Resource
     protected UserService userService;
+    @Resource
+    protected SmsService smsService;
+    @Resource
+    protected BillDispatchAuditService billDispatchAuditService;
 
     @ApiOperation(httpMethod="POST", value="???????")
     @RequestMapping(method = RequestMethod.POST, value = "service/create",consumes ="application/json")
     @ResponseBody
     public ResponseResult<String> create(@RequestBody Bill bill, HttpServletRequest request) {
         if (bill.getBillAmount().compareTo(new BigDecimal("0.00")) == 0){
-            new CommonException("记账金额不能为0.00");
+            throw new CommonException("记账金额不能为0.00");
         }
         if (StringUtils.isBlank(bill.getBillDescribe())){
-            new CommonException("账单描述不能为空");
+            throw new CommonException("账单描述不能为空");
         }
         String userName = request.getAttribute("userName") + "";
         String uid = request.getAttribute("uid") + "";
@@ -86,7 +73,7 @@ public class BillController {
         }
         bookService.modifyObj(book);
         if(bill.getBillDispatchType() == 1){
-            AddBillSmsThread addBillSmsThread = new AddBillSmsThread(userService, uid, bill);
+            AddBillSmsThread addBillSmsThread = new AddBillSmsThread(userService, uid, bill, smsService, billDispatchAuditService);
             Thread thread = new Thread(addBillSmsThread);
             thread.start();
         }

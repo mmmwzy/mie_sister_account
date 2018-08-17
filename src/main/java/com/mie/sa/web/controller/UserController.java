@@ -1,8 +1,5 @@
 package com.mie.sa.web.controller;
 
-import com.github.qcloudsms.SmsSingleSender;
-import com.github.qcloudsms.SmsSingleSenderResult;
-import com.github.qcloudsms.httpclient.HTTPException;
 import com.mie.base.core.entity.PageView;
 import com.mie.base.core.entity.ResponseResult;
 import com.mie.base.core.exception.CommonException;
@@ -11,7 +8,6 @@ import com.mie.base.core.utils.ResponseCode;
 import com.mie.base.core.utils.query.QueryParamWapper;
 import com.mie.base.utils.UUID.UUIDGenerator;
 import com.mie.base.utils.http.HttpGetClient;
-import com.mie.base.utils.http.HttpRequestUtils;
 import com.mie.sa.constant.Constant;
 import com.mie.sa.constant.TipCode;
 import com.mie.sa.entity.CodePhone;
@@ -20,34 +16,22 @@ import com.mie.sa.entity.User;
 import com.mie.sa.entity.UserExample;
 import com.mie.sa.service.CodePhoneService;
 import com.mie.sa.service.UserService;
-import com.mie.sa.utils.ClientUtils;
 import com.mie.sa.utils.JWTUtil;
 import com.mie.sa.utils.ResponseUtil;
+import com.mie.base.utils.http.HttpGetClient;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-import java.util.List;
-import java.util.Random;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-
-import net.sf.json.JSONObject;
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.http.client.HttpClient;
-import org.json.JSONException;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-import springfox.documentation.annotations.ApiIgnore;
+import java.io.IOException;
+import java.util.List;
 
 @Api(value="sa_user")
 @Controller
